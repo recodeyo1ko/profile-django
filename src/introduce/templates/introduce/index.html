@@ -82,26 +82,30 @@
           </div>
         </div>
       </div>
+      {% for question in questions %}
       <section class="text-gray-600 body-font overflow-hidden">
         <div class="container px-5 py-24 mx-auto">
           <div class="-my-8 divide-y-2 divide-gray-100">
             <div class="py-8 flex flex-wrap md:flex-nowrap">
               <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                <span class="font-semibold title-font text-gray-700"
-                  >投稿者</span
-                >
-                <span class="mt-1 text-gray-500 text-sm">日時</span>
+                <span class="font-semibold title-font text-gray-700">
+                  投稿者 {{ question.name }}
+                </span>
+                <span class="mt-1 text-gray-500 text-sm">
+                  {{ question.created_at }}
+                </span>
               </div>
               <div class="md:flex-grow">
                 <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">
-                  タイトル
+                  {{ question.title }}
                 </h2>
-                <p class="leading-relaxed">text</p>
+                <p class="leading-relaxed">{{ question.content }}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
+      {% endfor %}
     </main>
 
     <footer class="bg-white" aria-labelledby="footer-heading">

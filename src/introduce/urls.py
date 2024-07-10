@@ -16,9 +16,11 @@ Including another URLconf
 from django.urls import path, include
 from . import views
 
+app_name = 'introduce'
 
 urlpatterns = [
   path('', views.introduce, name='introduce'),
   path('index/', views.index, name='index'),
   path('form/', views.form, name='form'),
+  path('create/', views.create, name='create'),
 ]
