@@ -23,4 +23,6 @@ urlpatterns = [
   path('index/', views.index, name='index'),
   path('form/', views.form, name='form'),
   path('create/', views.create, name='create'),
+  path('question/<int:id>/', views.show, name='show'),
+  path('question/reply/',views.reply,name='reply'),
 ]

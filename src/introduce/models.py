@@ -11,3 +11,14 @@ class Question(models.Model):
     content = models.TextField(verbose_name='内容')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='作成日時')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='更新日時')
+
+
+class Reply(models.Model):
+    class Meta:
+        db_table = 'reply'
+
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, verbose_name='質問')
+    name = models.CharField(max_length=255, verbose_name='名前', default='名無し')
+    content = models.TextField(verbose_name='内容')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='作成日時')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='更新日時')

@@ -20,3 +20,18 @@ def create(request):
         question.content = request.POST['content']
         question.save()
     return redirect('introduce:index')
+
+def show(request, id):
+    question = Question.objects.get(id=id)
+    replies = question.reply_set.all()
+    return render(request, 'introduce/show.html', {'question': question, 'replies': replies})
+
+def reply(request):
+    if request.method == 'POST':
+        question_id = request.POST['question_id']
+        question = Question.objects.get(id=question_id)
+        reply = question.reply_set.create()
+        reply.name = request.POST['name']
+        reply.content = request.POST['content']
+        reply.save()
+    return redirect('introduce:show', id=question_id)
