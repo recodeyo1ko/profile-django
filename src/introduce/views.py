@@ -14,11 +14,9 @@ def form(request):
 
 def create(request):
     if request.method == 'POST':
-        name = request.POST['name']
-        title = request.POST['title']
-        content = request.POST['content']
-        question = Question(name=name, title=title, content=content)
+        question = Question()
+        question.name = request.POST['name']
+        question.title = request.POST['title']
+        question.content = request.POST['content']
         question.save()
-        questions = Question.objects.all()
-        return render(request, 'introduce/index.html', {'questions': questions})
-    return render(request, 'introduce/form.html')
+    return redirect('introduce:index')
