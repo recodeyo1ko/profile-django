@@ -21,8 +21,6 @@ app_name = 'introduce'
 urlpatterns = [
   path('', views.introduce, name='introduce'),
   path('index/', views.index, name='index'),
-  path('form/', views.form, name='form'),
-  path('create/', views.create, name='create'),
-  path('question/<int:id>/', views.show, name='show'),
-  path('question/reply/',views.reply,name='reply'),
+  path('form/', views.QuestionForm.as_view(), name='form'),
+  path('question/<int:id>/',views.ReplyForm.as_view(), name='reply'),
 ]

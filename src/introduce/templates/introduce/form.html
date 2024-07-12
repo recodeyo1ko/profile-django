@@ -92,19 +92,15 @@
             </h1>
           </div>
           <div class="lg:ww-full md:w-2/3 mx-auto">
-            <form action="/introduce/create/" method="post">
+            <form action="{% url 'introduce:form' %}" method="POST">
+              {% csrf_token %}
               <div class="flex flex-wrap -m-2">
                 <div class="p-2 w-full">
                   <div class="relative">
                     <label for="name" class="leading-7 text-sm text-gray-600"
                       >Name</label
                     >
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                    />
+                    {{ form.name}}
                   </div>
                 </div>
                 <div class="p-2 w-full">
@@ -112,12 +108,7 @@
                     <label for="title" class="leading-7 text-sm text-gray-600"
                       >Title</label
                     >
-                    <input
-                      type="text"
-                      id="title"
-                      name="title"
-                      class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                    />
+                    {{ form.title }}
                   </div>
                 </div>
                 <div class="p-2 w-full">
@@ -125,11 +116,7 @@
                     <label for="content" class="leading-7 text-sm text-gray-600"
                       >Content</label
                     >
-                    <textarea
-                      id="content"
-                      name="content"
-                      class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-                    ></textarea>
+                    {{ form.content }}
                   </div>
                 </div>
                 <div class="p-2 w-full">
