@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+<br />
+{% load static%} {% block title %}質問フォーム{% endblock %}<br />
+{% block content %}
+<div class="w-full max -w-7xl">
+  <div class="p-5 mx-auto md:px-6 lg:px-8">
+    <div class="flex flex-col items-center justify-center">
+      <h1 class="text-4xl font-bold text-center text-blue-600">質問投稿</h1>
+    </div>
+  </div>
+</div>
+<section class="text-gray-600 body-font relative">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1
+        class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
+      >
+        何か質問があればこちらまで
+      </h1>
+    </div>
+    <div class="lg:ww-full md:w-2/3 mx-auto">
+      <form action="{% url 'introduce:form' %}" method="POST">
+        {% csrf_token %}
+        <div class="flex flex-wrap -m-2">
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label for="name" class="leading-7 text-sm text-gray-600"
+                >Name</label
+              >
+              {{ form.name}}
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label for="title" class="leading-7 text-sm text-gray-600"
+                >Title</label
+              >
+              {{ form.title }}
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label for="content" class="leading-7 text-sm text-gray-600"
+                >Content</label
+              >
+              {{ form.content }}
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <button
+              type="submit"
+              class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            >
+              Button
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
